@@ -1,0 +1,15 @@
+"use client";
+
+import { useState } from "react";
+
+const assets = [
+  { name: "Bitcoin", symbol: "BTC", price: "—", change: "Awaiting provider" },
+  { name: "Ethereum", symbol: "ETH", price: "—", change: "Awaiting provider" },
+  { name: "Solana", symbol: "SOL", price: "—", change: "Awaiting provider" },
+  { name: "NEXORA", symbol: "NXR", price: "Not deployed", change: "Development" },
+];
+
+export default function Terminal() {
+  const [query, setQuery] = useState("");
+  return <main className="min-h-screen bg-ink text-white"><header className="flex items-center justify-between border-b border-line px-6 py-5"><a href="/" className="font-bold tracking-[0.25em]">NEXORA</a><span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs text-amber-300">DEMO DATA</span></header><div className="mx-auto max-w-7xl px-6 py-8"><div className="mb-8"><p className="text-sm uppercase tracking-[0.2em] text-cyan">AI Terminal</p><h1 className="mt-2 text-4xl font-semibold">Your financial command center.</h1><p className="mt-3 text-slate-400">Connect data providers and wallets to activate live intelligence.</p></div><div className="grid gap-4 md:grid-cols-4">{["Portfolio value", "24h performance", "Risk score", "Connected wallets"].map((label) => <div className="rounded-2xl border border-line bg-panel p-5" key={label}><p className="text-sm text-slate-500">{label}</p><p className="mt-5 text-2xl font-semibold">—</p><p className="mt-2 text-xs text-slate-600">Not available in demo mode</p></div>)}</div><div className="mt-8 grid gap-6 lg:grid-cols-[1.5fr_1fr]"><section className="rounded-2xl border border-line bg-panel p-6"><div className="flex items-center justify-between"><h2 className="text-lg font-semibold">Market overview</h2><span className="text-xs text-slate-500">Provider not configured</span></div><div className="mt-5 overflow-x-auto"><table className="w-full text-left text-sm"><thead className="text-slate-500"><tr><th className="pb-4">Asset</th><th className="pb-4">Price</th><th className="pb-4">24h</th></tr></thead><tbody>{assets.map((asset) => <tr className="border-t border-line" key={asset.symbol}><td className="py-4"><span className="font-medium">{asset.name}</span><span className="ml-2 text-xs text-slate-500">{asset.symbol}</span></td><td className="py-4">{asset.price}</td><td className="py-4 text-slate-500">{asset.change}</td></tr>)}</tbody></table></div></section><section className="rounded-2xl border border-line bg-panel p-6"><h2 className="text-lg font-semibold">NEXORA AI</h2><p className="mt-2 text-sm leading-6 text-slate-400">Ask for structured market research, portfolio analysis or risk interpretation. AI output is informational and not a guarantee of results.</p><textarea value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Ask NEXORA AI..." className="mt-6 h-28 w-full resize-none rounded-xl border border-line bg-ink p-3 text-sm outline-none focus:border-cyan" /><button onClick={() => setQuery(query || "Connect an AI provider to enable analysis.")} className="mt-3 rounded-xl bg-cyan px-4 py-2 text-sm font-bold text-ink">Analyze</button></section></div></div></main>;
+}
