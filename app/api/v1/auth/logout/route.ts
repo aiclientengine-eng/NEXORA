@@ -1,4 +1,4 @@
-import { destroyCurrentSession } from "../../../../../lib/auth";
+import { destroyCurrentSession } from "../../../../lib/auth";
 
 export async function POST() {
   try {
