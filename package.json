@@ -1,6 +1,6 @@
 {
   "name": "nexora",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,14 +12,18 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.16.2",
+    "bcryptjs": "^2.4.3",
+    "jose": "^6.0.10",
     "next": "14.2.15",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "lucide-react": "^0.468.0"
+    "lucide-react": "^0.468.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^20.17.10",
@@ -30,6 +34,7 @@
     "prisma": "^6.16.2",
     "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
     "vitest": "^2.1.8"
   }
 }
